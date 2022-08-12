@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="background-image:url({% static 'images/bg.jpg' %})">
+<center>
+    <h1 style="color:#118FC9;font-family:Garamond"><u>REGISTRATION FROM</u></h1><br><br>
+        <form action="register" method="post" >
+            {% csrf_token %}
+            <label><b>Username:</b></label>&nbsp;&nbsp;
+            <input type="text" name="username" placeholder="Username"><br><br>
+            <label><b>First name:&nbsp;</b></label>
+            <input type="text" name="firstname" placeholder="First name"><br><br>
+            <label><b>Last name:&nbsp;</b></label>&nbsp;
+            <input type="text" name="lastname" placeholder="Last name"><br><br>
+            <label><b>E-mail:</b></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="email" name="email" placeholder="email"><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <label><b>Password:</b></label>
+            <input type="password" name="pd" placeholder="Password"><br><br>
+            <label><b>Confirm :</b></label>
+            <input type="password" name="cpd" placeholder="Confirm Password"><br><br>
+            <h2><u>DECLARTION</u></h2>
+            <h3>I hereby declare that the information furnished
+                above is accurate to the best of my knowledge.<br>
+                I take entire liability for the correctness of the
+                information provided.
+            </h3>
+            <input type="checkbox" name="submit"><label><b>&nbsp;Submit</b></label><br><br>
+            <input type="submit" name="login" value="LOGIN" >
+
+        </form>
+    {% for msg in messages %}
+    <h2 style="color:white;">{{msg}}</h2>
+    {% endfor %}
+</center>
+</body>
+</html>
